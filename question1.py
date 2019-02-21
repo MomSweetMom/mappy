@@ -50,14 +50,15 @@ def reducer(data):
 def main(file_name, seperator='\t'):
     # file_name = 'tornik-map-20171006.10000.tsv'
     log = read_file(file_name)
-    print(log[:5])
     data = mapper(log)
-    print(data[:5])
     result = reducer(data)
 
     # write output to txt
-    with open('log1.txt', 'w') as file:
-        [file.write('{}{}{}\n'.format(line[0], seperator, line[1])) for line in result]
+    # with open('log1.txt', 'w') as file:
+    #     [file.print('{}{}{}\n'.format(line[0], seperator, line[1])) for line in result]
+
+    for line in result:
+        print('{}{}{}\n'.format(line[0], seperator, line[1]))
 
 if  __name__== '__main__':
     if len(sys.argv) == 1:
